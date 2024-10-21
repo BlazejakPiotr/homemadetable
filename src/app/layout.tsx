@@ -21,10 +21,16 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
+
   return (
     <SessionProvider session={session}>
-      <html lang="en">
-        <body className={cn(fontFamily.className, "text-justify antialiased")}>
+      <html lang="en" className="dark">
+        <body
+          className={cn(
+            fontFamily.className,
+            "mx-auto h-screen flex flex-col  bg-background text-foreground"
+          )}
+        >
           {children}
         </body>
       </html>
